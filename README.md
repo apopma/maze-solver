@@ -19,9 +19,7 @@ This is an implementation of the A* pathfinding algorithm as described by [Patri
 * Make some custom mazes or pick one of the pre-defined ones in `/mazes`.
 * Run `ruby maze_solver.rb path/to/maze`. There's no need to add `.txt` at the end.
 * Solutions will be output as `mazename_solved.txt`, in the same directory the source file is located in.
-* Some constraints:
-  * A solution should exist.
-  * Neither the start nor the end can be at the 'edges' of the maze. Ex:
+* Neither the start nor the end can be at the 'edges' of the maze. Ex:
   ```
   ************E** <-- This won't work: the end is located at the top edge.
   *             *
@@ -36,6 +34,16 @@ This is an implementation of the A* pathfinding algorithm as described by [Patri
   *   ++++++++E * <-- Place the end here instead.
   *  +******    *
   *   ++   *    *
+  *     S  *    *
+  *   ******    *
+  *             *
+  ***************
+
+  ***************
+  ************E** <-- This would also work.
+  *             *
+  *   ******    *
+  *        *    *
   *     S  *    *
   *   ******    *
   *             *
