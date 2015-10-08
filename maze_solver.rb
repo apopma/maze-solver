@@ -172,6 +172,8 @@ class MazeSolver
       if candidate_locations[pos] == candidate_locations.values.min
         # faster to sample from a subset of all minima? last minimum added?
         @location = pos
+        # Uncomment the line below to see all cells this algorithm searches.
+        # self[*location] = "•" unless self[*location] == 'E'
         candidate_locations.clear
         return
       end
@@ -225,7 +227,7 @@ class MazeSolver
       movement_cost[cell] = movement_cost[parent[cell]] + MOVE_COST_DIAG
     end
 
-    # copy costs into local vars
+    #copy costs into local vars
     new_movement_cost = 0
     current_movement_cost = movement_cost[cell]
     parent_movement_cost = movement_cost[parent[cell]]
