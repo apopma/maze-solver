@@ -28,10 +28,16 @@ class MazeSolver
     initial_pathfind
     choose_next_cell
 
-    pathfind until closed_list.include?(finish)
+    pathfind until open_list.empty? || closed_list.include?(finish)
+
+    if open_list.empty?
+      puts "FLAGRANT SYSTEM ERROR!\n#{ARGV[0]} cannot be solved.\n\n"
+      return false
+    end
 
     highlight_completed_path
     write_solution_to_file
+    return true
   end
 
   # ----------------------------------------------------------------------------
