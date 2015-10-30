@@ -1,3 +1,5 @@
+require 'colorize'
+
 class MazeSolver
   # Implements the A* pathfinding algorithm described at
   # http://www.policyalmanac.org/games/aStarTutorial.htm
@@ -52,10 +54,24 @@ class MazeSolver
   end
 
   def display
-    maze.each { |line| puts line.join }
-    # puts "start location is #{start}"
-    # puts "ending location is #{finish}"
-    # puts "current location is #{@location}"
+    maze.each do |line|
+      println = ""
+      line.each do |char|
+        case char
+        when "S"
+          println << " ".on_green
+        when "E"
+          println << " ".on_red
+        when "*"
+          println << " ".on_black
+        when "+"
+          println << " ".on_blue
+        else
+          println << " "
+        end
+      end
+      puts println
+    end
   end
 
   def listing
